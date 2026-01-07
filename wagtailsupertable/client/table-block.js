@@ -103,29 +103,36 @@ import { stateToHTML } from 'draft-js-export-html';
         colorMenu.key = "color";
         colorMenu.submenu = {
           items: [{
-            key: 'color:blue',
+            key: 'color:bg-primary-200',
             name: 'Blue',
             callback: setCellColor
           }, {
-            key: 'color:green',
+            key: 'color:bg-green-brand-light',
             name: 'Green',
             callback: setCellColor
           }, {
-            key: 'color:yellow',
+            key: 'color:bg-yellow-brand-light',
             name: 'Yellow',
             callback: setCellColor
-          },
-          {
-            key: 'color:teal-dark',
+          }, {
+            key: 'color:bg-teal-500',
             name: 'Teal Dark',
             callback: setCellColor
-          },{
-            key: 'color:teal-medium',
+          }, {
+            key: 'color:bg-teal-brand-medium-2',
             name: 'Teal Medium',
             callback: setCellColor
-          },{
-            key: 'color:teal-light',
+          }, {
+            key: 'color:bg-teal-brand-light-2',
             name: 'Teal Light',
+            callback: setCellColor
+          }, {
+            key: 'color:bg-gray-200',
+            name: 'Gray Light',
+            callback: setCellColor
+          }, {
+            key: 'color:bg-gray-400',
+            name: 'Gray Dark',
             callback: setCellColor
           }]
         }
@@ -156,14 +163,42 @@ import { stateToHTML } from 'draft-js-export-html';
     this.getActiveEditor().beginEditing();
   }
 
+  const COLOR_CLASS_SET = new Set([
+    'bg-yellow-brand-light',
+    'bg-primary-200',
+    'bg-green-brand-light',
+    'bg-teal-500',
+    'bg-teal-brand-medium-2',
+    'bg-teal-brand-light-2',
+    'bg-gray-200',
+    'bg-gray-400',
+    'yellow',
+    'blue',
+    'green',
+    'teal-dark',
+    'teal-medium',
+    'teal-light',
+    'grey',
+    'grey-dark',
+    'gray',
+    'gray-dark'
+  ]);
+
   function setCellColor(key, opt) {
-  	let color = key.substring(6);
-  	for (let i = opt[0].start.row; i <= opt[0].end.row; i++) {
+    let color = key.substring(6);
+    for (let i = opt[0].start.row; i <= opt[0].end.row; i++) {
       for (let j = opt[0].start.col; j <= opt[0].end.col; j++) {
-        this.setCellMeta(i, j, 'className', color);
-        this.render();
+        const cellMeta = this.getCellMeta(i, j);
+        const className = cellMeta.className || '';
+        const classes = className.split(/\s+/).filter(Boolean);
+        const nextClasses = classes.filter((entry) => !COLOR_CLASS_SET.has(entry));
+        if (color && !nextClasses.includes(color)) {
+          nextClasses.push(color);
+        }
+        this.setCellMeta(i, j, 'className', nextClasses.join(' '));
       }
     }
+    this.render();
   }
 
 
