@@ -103,35 +103,35 @@ import { stateToHTML } from 'draft-js-export-html';
         colorMenu.key = "color";
         colorMenu.submenu = {
           items: [{
-            key: 'color:bg-primary-200',
+            key: 'color:blue',
             name: 'Blue',
             callback: setCellColor
           }, {
-            key: 'color:bg-green-brand-light',
+            key: 'color:green',
             name: 'Green',
             callback: setCellColor
           }, {
-            key: 'color:bg-yellow-brand-light',
+            key: 'color:yellow',
             name: 'Yellow',
             callback: setCellColor
           }, {
-            key: 'color:bg-teal-500',
+            key: 'color:teal-dark',
             name: 'Teal Dark',
             callback: setCellColor
           }, {
-            key: 'color:bg-teal-brand-medium-2',
+            key: 'color:teal-medium',
             name: 'Teal Medium',
             callback: setCellColor
           }, {
-            key: 'color:bg-teal-brand-light-2',
+            key: 'color:teal-light',
             name: 'Teal Light',
             callback: setCellColor
           }, {
-            key: 'color:bg-gray-200',
+            key: 'color:grey',
             name: 'Gray Light',
             callback: setCellColor
           }, {
-            key: 'color:bg-gray-400',
+            key: 'color:grey-dark',
             name: 'Gray Dark',
             callback: setCellColor
           }]
@@ -184,18 +184,47 @@ import { stateToHTML } from 'draft-js-export-html';
     'gray-dark'
   ]);
 
+  const ALIGNMENT_CLASS_SET = new Set([
+    'htLeft',
+    'htCenter',
+    'htRight',
+    'htJustify',
+    'htMiddle',
+    'htTop',
+    'htBottom'
+  ]);
+
+  function splitClasses(value) {
+    if (!value) {
+      return [];
+    }
+    if (Array.isArray(value)) {
+      return value.filter(Boolean);
+    }
+    return String(value).split(/\s+/).filter(Boolean);
+  }
+
   function setCellColor(key, opt) {
     let color = key.substring(6);
     for (let i = opt[0].start.row; i <= opt[0].end.row; i++) {
       for (let j = opt[0].start.col; j <= opt[0].end.col; j++) {
         const cellMeta = this.getCellMeta(i, j);
-        const className = cellMeta.className || '';
-        const classes = className.split(/\s+/).filter(Boolean);
-        const nextClasses = classes.filter((entry) => !COLOR_CLASS_SET.has(entry));
+        const metaClasses = splitClasses(cellMeta.className);
+        const cellEl = this.getCell(i, j);
+        const domClasses = cellEl ? Array.from(cellEl.classList) : [];
+        const alignmentClasses = domClasses.filter((entry) => ALIGNMENT_CLASS_SET.has(entry));
+        const combined = metaClasses.concat(alignmentClasses);
+        const nextClasses = combined.filter((entry) => !COLOR_CLASS_SET.has(entry));
+        const uniqueClasses = [];
+        nextClasses.forEach((entry) => {
+          if (!uniqueClasses.includes(entry)) {
+            uniqueClasses.push(entry);
+          }
+        });
         if (color && !nextClasses.includes(color)) {
-          nextClasses.push(color);
+          uniqueClasses.push(color);
         }
-        this.setCellMeta(i, j, 'className', nextClasses.join(' '));
+        this.setCellMeta(i, j, 'className', uniqueClasses.join(' '));
       }
     }
     this.render();
