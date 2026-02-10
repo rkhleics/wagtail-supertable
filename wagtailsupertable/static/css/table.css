@@ -24,12 +24,37 @@ th.red {
 
 td.green,
 th.green {
-  background-color: #cff2d0;
+  background-color: #DDF0EE;
 }
 
 td.yellow,
 th.yellow {
-  background-color: #fffac3;
+  background-color: #FFF1B0;
+}
+
+td.teal-light,
+th.teal-light {
+  background-color: #DFEFEF;
+}
+
+td.teal-medium,
+th.teal-medium {
+  background-color: #A3D5D6;
+}
+
+td.teal-dark,
+th.teal-dark {
+  background-color: #7C98A4;
+}
+
+td.grey,
+th.grey {
+  background-color: #E5E7EB;
+}
+
+td.grey-dark,
+th.grey-dark {
+  background-color: #9CA3AF;
 }
 
 td.htLeft,

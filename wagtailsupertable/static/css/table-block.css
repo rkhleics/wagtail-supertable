@@ -76,23 +76,31 @@ table[id$=sortable-input] .sortable-type-input {
 }
 
 .handsontable .green {
-    background-color: #0b8847;
+    background-color: #DDF0EE;
 }
 
 .handsontable .yellow {
-    background-color: #e1dd00;
+    background-color: #FFF1B0;
 }
 
 .handsontable .teal-dark {
-    background-color: #046473;
+    background-color: #7C98A4;
 }
 
 .handsontable .teal-medium {
-    background-color: #41b8b9;
+    background-color: #A3D5D6;
 }
 
 .handsontable .teal-light {
-    background-color: #c6e5e4;
+    background-color: #DFEFEF;
+}
+
+.handsontable .grey {
+    background-color: #E5E7EB;
+}
+
+.handsontable .grey-dark {
+    background-color: #9CA3AF;
 }
 
 .handsontable table td p {

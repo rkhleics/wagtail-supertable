@@ -29540,36 +29540,32 @@ function stateToHTML(content, options) {
         colorMenu.key = "color";
         colorMenu.submenu = {
           items: [{
-            key: 'color:blue',
-            name: 'Blue',
-            callback: setCellColor
-          }, {
             key: 'color:green',
             name: 'Green',
+            callback: setCellColor
+          }, {
+            key: 'color:teal-light',
+            name: 'Light Teal',
+            callback: setCellColor
+          }, {
+            key: 'color:grey',
+            name: 'Grey',
+            callback: setCellColor
+          }, {
+            key: 'color:grey-dark',
+            name: 'Alt Grey',
             callback: setCellColor
           }, {
             key: 'color:yellow',
             name: 'Yellow',
             callback: setCellColor
           }, {
-            key: 'color:teal-dark',
-            name: 'Teal Dark',
-            callback: setCellColor
-          }, {
             key: 'color:teal-medium',
-            name: 'Teal Medium',
+            name: 'Medium Teal',
             callback: setCellColor
           }, {
-            key: 'color:teal-light',
-            name: 'Teal Light',
-            callback: setCellColor
-          }, {
-            key: 'color:grey',
-            name: 'Gray Light',
-            callback: setCellColor
-          }, {
-            key: 'color:grey-dark',
-            name: 'Gray Dark',
+            key: 'color:teal-dark',
+            name: 'Dark Teal',
             callback: setCellColor
           }]
         }
@@ -29602,11 +29598,14 @@ function stateToHTML(content, options) {
 
   const COLOR_CLASS_SET = new Set([
     'bg-yellow-brand-light',
+    'bg-yellow-brand-lightest',
     'bg-primary-200',
     'bg-green-brand-light',
     'bg-teal-500',
+    'bg-teal-brand-2',
     'bg-teal-brand-medium-2',
     'bg-teal-brand-light-2',
+    'bg-teal-200',
     'bg-gray-200',
     'bg-gray-400',
     'yellow',
