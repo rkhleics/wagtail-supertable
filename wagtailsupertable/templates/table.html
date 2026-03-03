@@ -18,7 +18,7 @@
                 >
                     {% if column.strip %}
                         {% if html_renderer %}
-                            {{ column.strip|safe|linebreaksbr }}
+                            {{ column.strip|safe }}
                         {% else %}
                             {{ column.strip|linebreaksbr }}
                         {% endif %}
@@ -43,7 +43,7 @@
                     >
                         {% if column.strip %}
                             {% if html_renderer %}
-                                {{ column.strip|safe|linebreaksbr }}
+                                {{ column.strip|safe }}
                             {% else %}
                                 {{ column.strip|linebreaksbr }}
                             {% endif %}
@@ -56,7 +56,7 @@
                     >
                         {% if column.strip %}
                             {% if html_renderer %}
-                                {{ column.strip|safe|linebreaksbr }}
+                                {{ column.strip|safe }}
                             {% else %}
                                 {{ column.strip|linebreaksbr }}
                             {% endif %}

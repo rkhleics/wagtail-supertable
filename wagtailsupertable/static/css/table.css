@@ -21,6 +21,56 @@ table.supertable th ol {
   padding-left: 1.25rem;
 }
 
+table.supertable td > ul,
+table.supertable td > ol,
+table.supertable th > ul,
+table.supertable th > ol {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-left: 1.25rem;
+}
+
+table.supertable td > ul > li,
+table.supertable td > ol > li,
+table.supertable th > ul > li,
+table.supertable th > ol > li {
+  margin: 0;
+}
+
+table.supertable td ul,
+table.supertable th ul {
+  list-style: disc outside;
+}
+
+table.supertable td ol,
+table.supertable th ol {
+  list-style: decimal outside;
+}
+
+table.supertable td li,
+table.supertable th li {
+  display: list-item !important;
+  position: static !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+}
+
+table.supertable td ul li::before,
+table.supertable td ol li::before,
+table.supertable th ul li::before,
+table.supertable th ol li::before {
+  content: none !important;
+  display: none !important;
+}
+
+table.supertable td ul > br,
+table.supertable td ol > br,
+table.supertable th ul > br,
+table.supertable th ol > br {
+  display: none;
+}
+
 td.hidden,
 th.hidden {
   display: none;

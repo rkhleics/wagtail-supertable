@@ -43,6 +43,7 @@ EXTENDED_TABLE_OPTIONS = {
     "height": 108,
     "language": "en-US",
     "renderer": "html",
+    "className": "htTop",
     "autoColumnSize": False,
 }
 

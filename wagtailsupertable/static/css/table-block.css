@@ -76,6 +76,41 @@ table[id$=sortable-input] .sortable-type-input {
     vertical-align: top;
 }
 
+.handsontable td.htLeft,
+.handsontable th.htLeft {
+    text-align: left;
+}
+
+.handsontable td.htCenter,
+.handsontable th.htCenter {
+    text-align: center;
+}
+
+.handsontable td.htRight,
+.handsontable th.htRight {
+    text-align: right;
+}
+
+.handsontable td.htJustify,
+.handsontable th.htJustify {
+    text-align: justify;
+}
+
+.handsontable td.htTop,
+.handsontable th.htTop {
+    vertical-align: top;
+}
+
+.handsontable td.htMiddle,
+.handsontable th.htMiddle {
+    vertical-align: middle;
+}
+
+.handsontable td.htBottom,
+.handsontable th.htBottom {
+    vertical-align: bottom;
+}
+
 .handsontable .blue {
     background-color: #194076;
 }
@@ -118,6 +153,56 @@ table[id$=sortable-input] .sortable-type-input {
 .handsontable table th ol {
     margin: 0;
     padding-left: 1.25rem;
+}
+
+.handsontable table td > ul,
+.handsontable table td > ol,
+.handsontable table th > ul,
+.handsontable table th > ol {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-left: 1.25rem;
+}
+
+.handsontable table td > ul > li,
+.handsontable table td > ol > li,
+.handsontable table th > ul > li,
+.handsontable table th > ol > li {
+    margin: 0;
+}
+
+.handsontable table td ul,
+.handsontable table th ul {
+    list-style: disc outside;
+}
+
+.handsontable table td ol,
+.handsontable table th ol {
+    list-style: decimal outside;
+}
+
+.handsontable table td li,
+.handsontable table th li {
+    display: list-item !important;
+    position: static !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+}
+
+.handsontable table td ul li::before,
+.handsontable table td ol li::before,
+.handsontable table th ul li::before,
+.handsontable table th ol li::before {
+    content: none !important;
+    display: none !important;
+}
+
+.handsontable table td ul > br,
+.handsontable table td ol > br,
+.handsontable table th ul > br,
+.handsontable table th ol > br {
+    display: none;
 }
 
 .handsontable:not(.ht_master) {

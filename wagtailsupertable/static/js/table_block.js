@@ -29502,6 +29502,7 @@ function stateToHTML(content, options) {
             }
           };
           html = stateToHTML( state, options );
+          html = normalizeListBreaks(html);
         }
 
         instance.setDataAtCell( cellProperties.row, cellProperties.col, html );
@@ -29594,6 +29595,24 @@ function stateToHTML(content, options) {
     this.setCellMeta(selection[0].start.row, selection[0].start.col, 'editor', 'richtext');
     this.selectCell(selection[0].start.row, selection[0].start.col);
     this.getActiveEditor().beginEditing();
+  }
+
+  function normalizeListBreaks(html) {
+    if (!html || html.indexOf('<br') === -1) {
+      return html;
+    }
+
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = html;
+    wrapper.querySelectorAll('ul, ol').forEach((list) => {
+      Array.from(list.childNodes).forEach((node) => {
+        if (node.nodeType === 1 && node.tagName === 'BR') {
+          list.removeChild(node);
+        }
+      });
+    });
+
+    return wrapper.innerHTML;
   }
 
   const COLOR_CLASS_SET = new Set([
