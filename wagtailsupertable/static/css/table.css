@@ -47,6 +47,19 @@ table.supertable th ol {
   list-style: decimal outside;
 }
 
+/* Keep list marker and content together for centered/right-aligned cells. */
+table.supertable td.htCenter ul,
+table.supertable td.htCenter ol,
+table.supertable td.htRight ul,
+table.supertable td.htRight ol,
+table.supertable th.htCenter ul,
+table.supertable th.htCenter ol,
+table.supertable th.htRight ul,
+table.supertable th.htRight ol {
+  list-style-position: inside;
+  padding-left: 0;
+}
+
 table.supertable td li,
 table.supertable th li {
   display: list-item !important;

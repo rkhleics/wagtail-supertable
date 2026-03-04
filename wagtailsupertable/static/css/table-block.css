@@ -188,6 +188,19 @@ table[id$=sortable-input] .sortable-type-input {
     list-style: decimal outside;
 }
 
+/* Keep list marker and content together for centered/right-aligned cells. */
+.handsontable table td.htCenter ul,
+.handsontable table td.htCenter ol,
+.handsontable table td.htRight ul,
+.handsontable table td.htRight ol,
+.handsontable table th.htCenter ul,
+.handsontable table th.htCenter ol,
+.handsontable table th.htRight ul,
+.handsontable table th.htRight ol {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
 .handsontable table td li,
 .handsontable table th li {
     display: list-item !important;
