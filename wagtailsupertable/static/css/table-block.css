@@ -73,7 +73,7 @@ table[id$=sortable-input] .sortable-type-input {
 
 .handsontable td,
 .handsontable th {
-    vertical-align: top;
+    vertical-align: top !important;
 }
 
 .handsontable td.htLeft,
@@ -98,17 +98,17 @@ table[id$=sortable-input] .sortable-type-input {
 
 .handsontable td.htTop,
 .handsontable th.htTop {
-    vertical-align: top;
+    vertical-align: top !important;
 }
 
 .handsontable td.htMiddle,
 .handsontable th.htMiddle {
-    vertical-align: middle;
+    vertical-align: middle !important;
 }
 
 .handsontable td.htBottom,
 .handsontable th.htBottom {
-    vertical-align: bottom;
+    vertical-align: bottom !important;
 }
 
 .handsontable .blue {
@@ -116,6 +116,13 @@ table[id$=sortable-input] .sortable-type-input {
 }
 
 .handsontable .green {
+    background-color: #DBEFDE;
+}
+
+/* Legacy class support so older saved tables render with current green. */
+.handsontable .bg-green-500,
+.handsontable .bg-green-brand-light,
+.handsontable .bg-green-50 {
     background-color: #DBEFDE;
 }
 

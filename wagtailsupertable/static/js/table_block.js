@@ -29619,6 +29619,8 @@ function stateToHTML(content, options) {
     'bg-yellow-brand-light',
     'bg-yellow-brand-lightest',
     'bg-primary-200',
+    'bg-green-500',
+    'bg-green-50',
     'bg-green-brand-light',
     'bg-teal-500',
     'bg-teal-brand-2',

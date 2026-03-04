@@ -86,6 +86,16 @@ th.green {
   background-color: #DBEFDE;
 }
 
+/* Legacy class support so older saved tables render with current green. */
+td.bg-green-500,
+th.bg-green-500,
+td.bg-green-brand-light,
+th.bg-green-brand-light,
+td.bg-green-50,
+th.bg-green-50 {
+  background-color: #DBEFDE;
+}
+
 td.yellow,
 th.yellow {
   background-color: #FFF1B0;
@@ -138,15 +148,15 @@ th.htJustify {
 
 td.htTop,
 th.htTop {
-  vertical-align: top;
+  vertical-align: top !important;
 }
 
 td.htMiddle,
 th.htMiddle {
-  vertical-align: middle;
+  vertical-align: middle !important;
 }
 
 td.htBottom,
 th.htBottom {
-  vertical-align: bottom;
+  vertical-align: bottom !important;
 }
